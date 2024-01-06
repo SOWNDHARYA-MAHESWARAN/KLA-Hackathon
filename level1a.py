@@ -66,8 +66,10 @@ nearest_neighbor_path.append("r0")
 result.append(nearest_neighbor_path)
 f=open("level1a_output.json","w")
 
-output = {"v0":{"path1":result[0],"path2":result[1],"path3":result[2]}}
-print(output)
+output = {}
+for i, path in enumerate(result):
+    output["path"+str(i+1)]=path
 
+print(output)
 with open("level1a_output.json", "w") as outfile: 
     json.dump(output, outfile)
